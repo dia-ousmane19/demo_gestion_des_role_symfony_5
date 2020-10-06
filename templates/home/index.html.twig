@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+
+{% block body %}
+
+	<div class="container" style="margin-top:120px">
+    <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Gestion des utilisateurs</h1>
+          <p class="lead text-muted">Ceci est une demonstration pour la gestion des roles en symfony 5</p>
+          <p>
+            
+            <a href="{{path('app_login')}}" class="btn btn-secondary my-2">connexion</a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+{% endblock %}

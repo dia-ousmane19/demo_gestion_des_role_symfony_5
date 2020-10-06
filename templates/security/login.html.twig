@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-4" style="width:500px">
+		<form method="post">
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
+
+			{% if app.user %}
+				<div class="mb-3">
+					You are logged in as
+					{{ app.user.username }},
+					<a href="{{ path('app_logout') }}">Logout</a>
+				</div>
+			{% endif %}
+			<div class="mb-3">
+				<p>Pour se connecter en tant <span class="text-primary">admin</span>:</p>
+				<ul class="list-group">
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						email
+						<span class="badge badge-primary badge-pill">admin@admin.com</span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						Password
+						<span class="badge badge-primary badge-pill">123456</span>
+					</li>
+					
+				</ul>
+			</div>
+            <div class="mb-3">
+				<p>Pour se connecter en tant <span class="text-danger">Client</span>:</p>
+				<ul class="list-group">
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						email
+						<span class="badge badge-primary badge-pill">users3@gmail.com</span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						Password
+						<span class="badge badge-primary badge-pill">123456</span>
+					</li>
+					
+				</ul>
+			</div>
+            <div class="mb-3">
+				<p>Pour se connecter en tant <span class="text-secondary">Community manager</span>:</p>
+				<ul class="list-group">
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						email
+						<span class="badge badge-primary badge-pill">users2@gmail.com</span>
+					</li>
+					<li class="list-group-item d-flex justify-content-between align-items-center">
+						Password
+						<span class="badge badge-primary badge-pill">123456</span>
+					</li>
+					
+				</ul>
+			</div>
+			<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+			<label for="inputEmail">Email</label>
+			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+			<label for="inputPassword">Password</label>
+			<input type="password" name="password" id="inputPassword" class="form-control" required>
+
+			<input
+			type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			{#
+			        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+			        See https://symfony.com/doc/current/security/remember_me.html
+			
+			        <div class="checkbox mb-3">
+			            <label>
+			                <input type="checkbox" name="_remember_me"> Remember me
+			            </label>
+			        </div>
+			    #}
+
+			<button class="btn mt-4 btn-lg btn-primary" type="submit">
+				Se connecter
+			</button>
+		</form>
+	</div>
+{% endblock %}
