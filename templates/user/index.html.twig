@@ -6,6 +6,12 @@
 {% block body %}
 	<div class="container m-4">
 		<h3 class="text-center">Gestion des utilisateurs</h3>
+        <a class="btn btn-primary" href="{{ path('home') }}">
+			accueil
+		</a>
+         <a class="btn btn-primary" href="{{ path('compte_index') }}">
+			dashboard
+		</a>
 		<a class="btn btn-primary" href="{{ path('user_new') }}">
 			<i class="fas fa-user-plus"></i>
 		</a>

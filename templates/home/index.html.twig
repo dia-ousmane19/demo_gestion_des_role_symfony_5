@@ -14,6 +14,11 @@
           <p>
             
             <a href="{{path('app_login')}}" class="btn btn-secondary my-2">connexion</a>
+            {% if is_granted('ROLE_CLIENT') %}
+            
+            <a href="{{path('compte_index')}}" class="btn btn-secondary my-2">dashboard</a>
+            {% endif %}
+
           </p>
         </div>
       </section>
