@@ -5,18 +5,21 @@
 
 {% block body %}
 	<div class="container mt-4" style="width:500px">
+			<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+
 		<form method="post">
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
 
 			{% if app.user %}
-				<div class="mb-3">
+				<div class="mb-3 alert alert-success">
 					You are logged in as
 					{{ app.user.username }},
 					<a href="{{ path('app_logout') }}">Logout</a>
 				</div>
 			{% endif %}
+            <div class="dropdown-divider"></div>
 			<div class="mb-3">
 				<p>Pour se connecter en tant <span class="text-primary">admin</span>:</p>
 				<ul class="list-group">
@@ -31,6 +34,7 @@
 					
 				</ul>
 			</div>
+            <div class="dropdown-divider"></div>
             <div class="mb-3">
 				<p>Pour se connecter en tant <span class="text-danger">Client</span>:</p>
 				<ul class="list-group">
@@ -45,6 +49,7 @@
 					
 				</ul>
 			</div>
+            <div class="dropdown-divider"></div>
             <div class="mb-3">
 				<p>Pour se connecter en tant <span class="text-secondary">Community manager</span>:</p>
 				<ul class="list-group">
@@ -59,7 +64,7 @@
 					
 				</ul>
 			</div>
-			<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+            <div class="dropdown-divider"></div>
 			<label for="inputEmail">Email</label>
 			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
 			<label for="inputPassword">Password</label>
